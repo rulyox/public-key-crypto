@@ -2,6 +2,8 @@
 #include <random>
 
 #define ull unsigned long long
+#define RANDOM_MIN 100000000
+#define RANDOM_MAX 999999999
 
 int create_random(int, int);
 int gcd(int, int);
@@ -17,7 +19,7 @@ int main() {
 
         while(true) {
 
-            int random_number = create_random(100000000, 999999999);
+            int random_number = create_random(RANDOM_MIN, RANDOM_MAX);
 
             // only odd  numbers
             if(random_number % 2 == 0) continue;
@@ -31,7 +33,8 @@ int main() {
 
     }
 
-    std::cout << prime[0] << std::endl << prime[1] << std::endl;
+    std::cout << "Create two large prime numbers." << std::endl;
+    std::cout << prime[0] << " " << prime[1] << std::endl;
 
     return 0;
 
