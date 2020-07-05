@@ -1,33 +1,26 @@
 #include <random>
 #include "public_key_crypto.h"
 
-#define RANDOM_MIN 100000000
-#define RANDOM_MAX 999999999
-
 int create_random(int, int);
 bool check_prime(int);
 int gcd(int, int);
 int jacobi_symbol(int, int);
 ull modulo_exponential(ull, ull, ull);
 
-ull* public_key_crypto::create_prime() {
+int* public_key_crypto::create_prime(int min, int max) {
 
-    ull* prime = new ull[2];
+    int* prime = new int;
 
-    for(int i = 0; i < 2; i++) {
+    while(true) {
 
-        while(true) {
+        int random_number = create_random(min, max);
 
-            int random_number = create_random(RANDOM_MIN, RANDOM_MAX);
+        // only odd numbers
+        if(random_number % 2 == 0) continue;
 
-            // only odd numbers
-            if(random_number % 2 == 0) continue;
-
-            if(check_prime(random_number)) {
-                prime[i] = random_number;
-                break;
-            }
-
+        if(check_prime(random_number)) {
+            *prime = random_number;
+            break;
         }
 
     }
