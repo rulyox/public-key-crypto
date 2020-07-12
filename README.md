@@ -12,4 +12,9 @@ Calculate `n`.
 
 ## choose_d
 
-Choose `d` which is relatively prime to `EulerPhi(n)`.
+Choose `d` which is relatively prime to `euler_phi(n)`.
+
+
+## calculate_e
+
+Calculate `e` which is the multiplicative inverse of `d` under modulo `euler_phi(n)`.

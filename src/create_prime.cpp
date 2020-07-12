@@ -5,7 +5,7 @@ int create_random(int, int);
 bool check_prime(int);
 int gcd(int, int);
 int jacobi_symbol(int, int);
-ull modulo_exponential(ull, ull, ull);
+ll modulo_exponential(ll, ll, ll);
 
 int* public_key_crypto::create_prime(int min, int max) {
 
@@ -59,7 +59,7 @@ bool check_prime(int number) {
         }
 
         int jacobi = jacobi_symbol(relative_prime, number);
-        ull modulo = modulo_exponential(relative_prime, (number - 1) / 2, number);
+        ll modulo = modulo_exponential(relative_prime, (number - 1) / 2, number);
 
         // if same under modulo, it has chance of primality
         if(jacobi == modulo || jacobi == modulo - number) continue;
@@ -109,9 +109,9 @@ int jacobi_symbol(int a, int b) {
 
 }
 
-ull modulo_exponential(ull base, ull exp, ull mod) {
+ll modulo_exponential(ll base, ll exp, ll mod) {
 
-    ull result = 1;
+    ll result = 1;
 
     while(exp > 0) {
 
